@@ -2,32 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+    h1 {
+        @apply text-[70px];
+        @apply font-extralight;
+    }
+
+    h2 {
+        @apply text-[48px];
+        @apply font-extralight;
+        @apply leading-[70px];
+        @apply text-balance;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@layer components {
+    .sf-container {
+        @apply mx-auto;
+        @apply relative;
+        @apply overflow-hidden;
+    }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+    .sf-content {
+        @apply container;
+        @apply relative;
+        @apply mx-auto max-w-screen-lg;
+        @apply pt-[120px] pr-5;
+    }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .sf-header {
+        padding: 20px 0;
+    }
+
+    .flag-text {
+        @apply text-sm;
+        @apply font-normal;
+        @apply underline underline-offset-4;
+        @apply rotate-180;
+        @apply text-end;
+        @apply min-h-[150px];
+        @apply absolute;
+        @apply -left-[80px];
+        @apply pb-[18px];
+
+        writing-mode: tb-rl;
+    }
+
+    .case-slider {
+        @apply !mt-[60px] !-mr-[160px] !mb-0 !ml-0;
+    }
+    .case-slide {
+        @apply relative pt-10 bg-blue-200;
+    }
+    .case-slide > a {
+        @apply relative mx-auto w-[200px] block;
+    }
+    .case-slide > a > h4 {
+        @apply absolute bottom-12 bg-white text-blue-400 p-5 mr-[30px] line-clamp-2;
+    }
+
+    .blog-slider {
+        @apply !mt-[60px] !-mr-[160px] !mb-0 !ml-0;
+    }
+    .blog-slide {
+        @apply bg-blue-200 rounded-lg;
+    }
+    .blog-thumb {
+        @apply h-[215px] overflow-hidden;
+    }
+    .blog-slide > img {
+        @apply rounded-t-lg;
+    }
+    .blog-content {
+        @apply p-4;
+    }
+    .blog-date {
+        @apply text-sm text-gray-400 mb-3;
+    }
+    .blog-text {
+        @apply text-black font-semibold line-clamp-2;
+    }
 }
